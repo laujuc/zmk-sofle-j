@@ -12,5 +12,9 @@ manifest:
     - name: hammerbeam-slideshow          #new entry
       remote: gpeye                       #new entry
       revision: main                      #new entry 
+    - name: zmk-locales
+      url: https://github.com/joelspadin/zmk-locales
+      revision: main
+      path: modules/zmk-locales
   self:
     path: config
