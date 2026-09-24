@@ -1,0 +1,30 @@
+manifest:
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: joelspadin
+      url-base: https://github.com/joelspadin
+    - name: gpeye
+      url-base: https://github.com/GPeye
+    - name: zmk-sofle
+      url-base: https://github.com/a741725193
+  projects:
+    - name: eyelash_sofle
+      remote: zmk-sofle
+      revision: main
+    - name: zmk
+      remote: zmkfirmware
+      revision: v0.3.0
+      import: app/west.yml
+    - name: nice-view-mod
+      remote: gpeye
+      revision: main
+    - name: mario-peripheral-animation
+      remote: gpeye
+      revision: main
+    - name: zmk-locales
+      remote: joelspadin
+      revision: main
+      path: modules/zmk-locales
+  self:
+    path: boards
