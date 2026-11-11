@@ -2,21 +2,21 @@ layout: {zmk_keyboard: eyelash_sofle}
 layers:
   LAYER0:
   - $$mdi:keyboard-esc$$
-  - {t: '1', s: '!'}
-  - {t: '2', s: '@'}
-  - {t: '3', s: '#'}
-  - {t: '4', s: $}
-  - {t: '5', s: '%'}
+  - {t: '&', s: '1'}
+  - {t: é, s: '2'}
+  - {t: '"', s: '3'}
+  - {t: "'", s: '4'}
+  - {t: '(', s: '5'}
   - $$mdi:arrow-up-bold$$
-  - {t: '6', s: ^}
-  - {t: '7', s: '&'}
-  - {t: '8', s: '*'}
-  - {t: '9', s: (}
-  - {t: '0', s: )}
+  - {t: §, s: '6'}
+  - {t: è, s: '7'}
+  - {t: '!', s: '8'}
+  - {t: ç, s: '9'}
+  - {t: à, s: '0'}
   - {t: '$$mdi:backspace$$', type: backspace}
   - $$mdi:keyboard-tab$$
-  - Q
-  - W
+  - A
+  - Z
   - E
   - R
   - T
@@ -26,32 +26,32 @@ layers:
   - I
   - O
   - P
-  - {t: \, s: '|'}
-  - $$mdi:apple-keyboard-caps$$
-  - A
-  - S
-  - D
-  - F
-  - G
-  - $$mdi:arrow-left-bold$$
-  - H
-  - J
-  - K
-  - L
-  - {t: ;, s: ':'}
-  - {t: '''', s: '"'}
+  - {t: '^', s: ¨}
   - $$mdi:apple-keyboard-shift$$
-  - Z
+  - Q
+  - S
+  - {t: D, h: Gui}
+  - {t: F, h: Alt}
+  - {t: G, h: Ctrl}
+  - $$mdi:arrow-left-bold$$
+  - {t: H, h: Ctrl}
+  - {t: J, h: AltGr}
+  - {t: K, h: Gui}
+  - L
+  - M
+  - {t: ù, s: '%'}
+  - {t: '<', s: '>'}
+  - W
   - X
   - C
   - V
   - B
   - $$mdi:arrow-right-bold$$
   - N
-  - M
-  - {t: ',', s: <}
-  - {t: ., s: '>'}
-  - {t: /, s: '?'}
+  - {t: ',', s: '?'}
+  - {t: ';', s: '.'}
+  - {t: ':', s: '/'}
+  - {t: '=', s: '+'}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:volume-off$$
   - $$mdi:apple-keyboard-control$$
@@ -66,7 +66,7 @@ layers:
   - $$mdi:apple-keyboard-shift$$
   - $$mdi:backspace-reverse-outline$$
   layer1:
-  - {t: '`', s: '~'}
+  - '`'
   - F1
   - F2
   - F3
@@ -78,9 +78,9 @@ layers:
   - F8
   - F9
   - F10
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '`', s: '~'}
+  - ')'
+  - {t: ², s: ³}
+  - '@'
   - $$mdi:mouse-left-click-outline$$
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:mouse-right-click-outline$$
@@ -91,8 +91,8 @@ layers:
   - $$mdi:arrow-up-bold$$
   - HOME
   - {t: '-', s: _}
-  - {t: '=', s: +}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$', s: '*'}
+  - µ
   - '~'
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -103,8 +103,8 @@ layers:
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-right-bold$$
-  - {t: '[', s: '{'}
-  - {t: ']', s: '}'}
+  - '['
+  - ']'
   - {t: '$$mdi:transfer$$', type: trans}
   - RGB OFF
   - RGB ON
@@ -151,8 +151,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - '#'
+  - €
   - F11
   - F12
   - _
@@ -164,8 +164,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - '|'
+  - \
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - '{'

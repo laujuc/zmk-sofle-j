@@ -1,3 +1,12 @@
+/*
+ * Eyelash Sofle — Belgian AZERTY (Français Belgique).
+ *
+ * The host OS keyboard layout must be "Belgian (French)" / "Français (Belgique)".
+ * FR_* codes are the HID positions that layout expects, not US characters.
+ * Shift on the symbol row types the Belgian digits: Shift+& = 1, Shift+é = 2, …
+ * ^ and ¨ are dead keys, same as on a Belgian keyboard.
+ */
+
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 25   // 10
 
@@ -70,26 +79,37 @@
     keymap {
         compatible = "zmk,keymap";
 
+        /*
+         * Base — Belgian AZERTY. Inner column stays arrows.
+         * Home-row mods: hold GUI/ALT/CTRL, tap the letter.
+         * Keys that do not fit (&) - $ µ ²) live on layer 1.
+         * Bottom-left outer key is < (Shift+< = >), not a second Shift.
+         */
         layer0 {
             bindings = <
-&kp ESC         &kp FR_AMPS       &kp FR_E_ACUTE  &kp FR_DQT         &kp FR_SQT         &kp FR_LPAR              &kp UP_ARROW     &kp FR_SECT     &kp FR_E_GRAVE      &kp FR_EXCL         &kp FR_C_CEDILLA  &kp FR_A_GRAVE  &kp BACKSPACE
-&kp TAB         &kp FR_A          &kp FR_Z        &kp FR_E           &kp FR_R           &kp FR_T                 &kp DOWN_ARROW   &kp FR_Y        &kp FR_U            &kp FR_I            &kp FR_O          &kp FR_P        &kp FR_MU
-&kp LEFT_SHIFT  &kp FR_Q          &kp FR_S        &mt FR_D LEFT_GUI  &mt FR_F LEFT_ALT  &mt FR_G LEFT_CONTROL    &kp LEFT_ARROW   &mt FR_H RCTRL  &mt FR_J RIGHT_ALT  &mt FR_K RIGHT_GUI  &kp FR_L          &kp FR_M        &kp FR_U_GRAVE
-&kp LSHFT       &kp FR_W          &kp FR_X        &kp FR_C           &kp FR_V           &kp FR_B                 &kp RIGHT_ARROW  &kp FR_N        &kp FR_COMMA        &kp FR_SEMI         &kp FR_COLON      &kp FR_EQUAL    &kp ENTER
-&kp C_MUTE      &kp LEFT_CONTROL  &kp LEFT_GUI    &kp LEFT_ALT       &mo 1              &kp FR_SPACE             &kp ENTER        &kp FR_SPACE    &kp ENTER           &mo 2               &kp RSHIFT        &kp DELETE
+&kp ESC     &kp FR_AMPS  &kp FR_E_ACUTE  &kp FR_DQT     &kp FR_SQT      &kp FR_LPAR           &kp UP_ARROW     &kp FR_SECT     &kp FR_E_GRAVE  &kp FR_EXCL     &kp FR_C_CEDILLA  &kp FR_A_GRAVE  &kp BSPC
+&kp TAB     &kp FR_A     &kp FR_Z        &kp FR_E       &kp FR_R        &kp FR_T              &kp DOWN_ARROW   &kp FR_Y        &kp FR_U        &kp FR_I        &kp FR_O          &kp FR_P        &kp FR_CARET
+&kp LSHFT   &kp FR_Q     &kp FR_S        &mt LGUI FR_D  &mt LALT FR_F   &mt LCTRL FR_G        &kp LEFT_ARROW   &mt RCTRL FR_H  &mt RALT FR_J   &mt RGUI FR_K   &kp FR_L          &kp FR_M        &kp FR_U_GRAVE
+&kp FR_LT   &kp FR_W     &kp FR_X        &kp FR_C       &kp FR_V        &kp FR_B              &kp RIGHT_ARROW  &kp FR_N        &kp FR_COMMA    &kp FR_SEMI     &kp FR_COLON      &kp FR_EQUAL    &kp ENTER
+&kp C_MUTE  &kp LCTRL    &kp LGUI        &kp LALT       &mo 1           &kp SPACE             &kp ENTER        &kp SPACE       &kp ENTER       &mo 2           &kp RSHIFT        &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
-            display-name = "LAYER0";
+            display-name = "AZERTY";
         };
 
+        /*
+         * Layer 1 — F-keys, mouse, nav, and Belgian keys missing from the base.
+         * ) - $ are on the right half so the left thumb can hold this layer.
+         * Shift still works: -/_  $/*  </ > is on the base layer.
+         */
         layer_1 {
             bindings = <
-&none	   &kp F1           &kp F2          &kp F3           &kp F4           &kp F5             &none     			&kp F6		&kp F7		&kp F8  &kp F9     &kp F10  &trans
-&trans      &none        	&none       	&none            &none            &mkp MB4           &none				&none        &none		&none  			&none   &none    	&none
-&trans      &kp TILDE        &trans          &trans           &trans           &none              &mmv MOVE_LEFT   &kp LEFT         &kp DOWN         &kp UP  &kp RIGHT  &none    &none
-&trans      &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI    &mmv MOVE_RIGHT  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &none   &none      &none    &trans
-&kp C_MUTE  &trans           &trans          &trans           &trans           &trans             &mkp LCLK        &trans           &trans           &trans  &trans     &trans
+&kp FR_GRAVE   &kp F1           &kp F2          &kp F3           &kp F4           &kp F5             &mmv MOVE_UP     &kp F6           &kp F7           &kp F8      &kp F9     &kp F10       &kp FR_RPAR
+&kp FR_SUPER2  &kp FR_AT        &mkp LCLK       &mkp MCLK        &mkp RCLK        &mkp MB4           &mmv MOVE_DOWN   &kp PG_UP        &kp END          &kp UP      &kp HOME   &kp FR_MINUS  &kp FR_DLLR
+&kp FR_MU      &kp FR_TILDE     &trans          &trans           &trans           &mkp MB5           &mmv MOVE_LEFT   &kp PG_DN        &kp LEFT         &kp DOWN    &kp RIGHT  &kp FR_LBKT   &kp FR_RBKT
+&trans         &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI    &mmv MOVE_RIGHT  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp INSERT  &kp F11    &kp F12       &trans
+&kp C_MUTE     &trans           &trans          &trans           &trans           &trans             &mkp LCLK        &trans           &trans           &trans      &trans     &trans
             >;
 
             display-name = "layer1";
@@ -98,11 +118,11 @@
 
         layer_2 {
             bindings = <
-&kp TILDE  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &mmv MOVE_UP    	 &kp F6  &kp F7  &kp F8      &kp F9     &kp F10      &trans
-&trans     &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans          &mmv MOVE_DOWN 	  &trans  &trans  &kp F11     &kp F12    &kp UNDER    &kp PLUS
-&trans     &out OUT_USB  &out OUT_BLE    &trans        &trans        &trans          &mmv MOVE_LEFT   	&trans  &trans  &trans      &trans     &kp LBRC     &kp RBRC
-&trans     &sys_reset    &trans          &bootloader   &trans        &trans          &mmv MOVE_RIGHT 	 &trans  &trans  &sys_reset  &soft_off  &bootloader  &trans
-&trans     &trans        &trans          &trans        &trans        &trans          &mkp LCLK        	&trans  &trans  &trans      &trans     &trans
+&kp FR_TILDE  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &mmv MOVE_UP     &kp F6       &kp F7       &kp F8       &kp F9     &kp F10       &trans
+&trans        &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans          &mmv MOVE_DOWN   &kp FR_HASH  &kp FR_EURO  &kp F11      &kp F12    &kp FR_UNDER  &kp FR_PLUS
+&trans        &out OUT_USB  &out OUT_BLE    &trans        &trans        &trans          &mmv MOVE_LEFT   &kp FR_PIPE  &kp FR_BSLH  &trans       &trans     &kp FR_LBRC   &kp FR_RBRC
+&trans        &sys_reset    &trans          &bootloader   &trans        &trans          &mmv MOVE_RIGHT  &trans       &trans       &sys_reset   &soft_off  &bootloader   &trans
+&trans        &trans        &trans          &trans        &trans        &trans          &mkp LCLK        &trans       &trans       &trans       &trans     &trans
             >;
 
             display-name = "layer2";
