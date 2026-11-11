@@ -1,5 +1,0 @@
-/*
- * Not built. ZMK loads config/eyelash_sofle.keymap (the board name).
- * Belgian AZERTY is integrated there. Host OS layout must be
- * "Belgian (French)" / "Français (Belgique)".
- */
